@@ -1,1 +1,24 @@
 version: 1
+jobs:
+  backend_build:
+    docker:
+      - image: microsoft/dotnet:2.2.100-sdk-stretch
+    steps:
+      - checkout
+      - run: cd Backend && dotnet restore
+      - run: cd Backend && dotnet build
+  backend_publish:
+    docker:
+      - image: microsoft/dotnet:2.2.100-sdk-stretch
+    steps:
+      - checkout
+      - run: cd Backend && dotnet publish -c Release
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - backend_build
+      - backend_publish:
+          requires:
+            - backend_build
