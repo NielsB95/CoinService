@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinService", "CoinService\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinService.Tasks", "CoinService.Tasks\CoinService.Tasks.csproj", "{32D65E8C-DD27-4936-9401-39E2E841D626}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinService.BusinessLayer", "CoinService.BusinessLayer\CoinService.BusinessLayer.csproj", "{0643EF37-5E71-456B-98D8-11CD1B95DB49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{32D65E8C-DD27-4936-9401-39E2E841D626}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32D65E8C-DD27-4936-9401-39E2E841D626}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32D65E8C-DD27-4936-9401-39E2E841D626}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0643EF37-5E71-456B-98D8-11CD1B95DB49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0643EF37-5E71-456B-98D8-11CD1B95DB49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0643EF37-5E71-456B-98D8-11CD1B95DB49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0643EF37-5E71-456B-98D8-11CD1B95DB49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
