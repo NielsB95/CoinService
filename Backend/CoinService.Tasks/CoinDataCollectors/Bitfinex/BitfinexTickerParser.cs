@@ -47,7 +47,7 @@ namespace CoinService.Tasks.CoinDataCollectors.Bitfinex
 				Volume = ParseBitfinexFloat(properties[8]),
 				High = ParseBitfinexFloat(properties[9]),
 				Low = ParseBitfinexFloat(properties[10]),
-				Timestamp = DateTime.Now
+				Timestamp = DateTime.UtcNow
 			};
 		}
 
