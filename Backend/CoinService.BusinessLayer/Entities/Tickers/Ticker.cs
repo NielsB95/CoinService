@@ -10,15 +10,20 @@ namespace CoinService.BusinessLayer.Entities.Tickers
 		public int ID { get; set; }
 
 		public string Symbol { get; set; }
-		public float Bid { get; set; }
-		public float BidSize { get; set; }
-		public float Ask { get; set; }
-		public float AskSize { get; set; }
-		public float DailyChange { get; set; }
-		public float DailyChangePerc { get; set; }
-		public float LastPrice { get; set; }
-		public float Volume { get; set; }
-		public float High { get; set; }
-		public float Low { get; set; }
+		public decimal Bid { get; set; }
+		public decimal BidSize { get; set; }
+		public decimal Ask { get; set; }
+		public decimal AskSize { get; set; }
+		public decimal DailyChange { get; set; }
+		public decimal DailyChangePerc { get; set; }
+		public decimal LastPrice { get; set; }
+		public decimal Volume { get; set; }
+		public decimal High { get; set; }
+		public decimal Low { get; set; }
+
+		public override string ToString()
+		{
+			return string.Format("{0} - {1} - {2}", Symbol, Bid, Ask);
+		}
 	}
 }
