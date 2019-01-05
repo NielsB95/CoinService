@@ -1,4 +1,4 @@
-using CoinService.Tasks.CoinDataCollectors;
+using CoinService.Tasks.CoinDataCollectors.Bitfinex;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 

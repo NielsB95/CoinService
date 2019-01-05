@@ -1,20 +1,26 @@
-﻿using CoinService.Tasks.CoinDataCollectors;
+﻿using CoinService.BusinessLayer.Entities.Tickers;
+using CoinService.Tasks.CoinDataCollectors.Bitfinex;
 using Hangfire;
 using Hangfire.PostgreSql;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Linq;
+using System;
 
 namespace CoinService.Tasks
 {
 	public static class Registration
 	{
-		public static IServiceCollection AddTasks(this IServiceCollection services, IConfiguration configuration)
-		{
-			services.AddHangfire(config => config.UsePostgreSqlStorage(configuration.GetConnectionString("CoinDB")));
+		private static IConfiguration configuration;
+		private static IServiceProvider serviceProvider;
 
-			services.AddTasks();
+
+		public static IServiceCollection AddTasks(this IServiceCollection services, IServiceProvider serviceProvider, IConfiguration configuration)
+		{
+			Registration.configuration = configuration;
+			Registration.serviceProvider = serviceProvider;
+
+			services.AddHangfire(config => config.UsePostgreSqlStorage(configuration.GetConnectionString("CoinDB")));
 
 			return services;
 		}
@@ -24,21 +30,17 @@ namespace CoinService.Tasks
 			app.UseHangfireServer();
 			app.UseHangfireDashboard();
 
+			app.RegisterTasks();
+
 			return app;
 		}
 
-		private static IServiceCollection AddTasks(this IServiceCollection services)
+		private static IApplicationBuilder RegisterTasks(this IApplicationBuilder app)
 		{
-			// Get the classes that implement the IDataCollector interface.
-			var collectorTaskTypes = typeof(IDataCollector).Assembly.GetTypes()
-				.Where(x => typeof(IDataCollector).IsAssignableFrom(x))
-				.Where(x => x.IsClass)
-				.ToList();
+			var tickerRepository = serviceProvider.GetService<ITickerRepository>();
+			new BitfinexDataCollector(tickerRepository, configuration).Register();
 
-			foreach (var taskType in collectorTaskTypes)
-				services.AddScoped(taskType);
-
-			return services;
+			return app;
 		}
 	}
 }

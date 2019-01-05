@@ -5,23 +5,26 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace CoinService
 {
 	public class Startup
 	{
-		public Startup(IConfiguration configuration)
+		public Startup(IConfiguration configuration, IServiceProvider serviceProvider)
 		{
 			Configuration = configuration;
+			ServiceProvider = serviceProvider;
 		}
 
 		public IConfiguration Configuration { get; }
+		public IServiceProvider ServiceProvider { get; }
 
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddDataLayer();
-			services.AddTasks(Configuration);
+			services.AddTasks(ServiceProvider, Configuration);
 
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 		}

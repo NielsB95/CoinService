@@ -1,8 +1,9 @@
 ﻿using CoinService.BusinessLayer.Entities.Tickers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CoinService.Tasks.CoinDataCollectors
+namespace CoinService.Tasks.CoinDataCollectors.Bitfinex
 {
 	public static class BitfinexTickerParser
 	{
@@ -45,7 +46,8 @@ namespace CoinService.Tasks.CoinDataCollectors
 				LastPrice = ParseBitfinexFloat(properties[7]),
 				Volume = ParseBitfinexFloat(properties[8]),
 				High = ParseBitfinexFloat(properties[9]),
-				Low = ParseBitfinexFloat(properties[10])
+				Low = ParseBitfinexFloat(properties[10]),
+				Timestamp = DateTime.Now
 			};
 		}
 

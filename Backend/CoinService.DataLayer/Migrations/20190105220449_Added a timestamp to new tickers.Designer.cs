@@ -3,15 +3,17 @@ using System;
 using CoinService.DataLayer.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CoinService.DataLayer.Migrations
 {
     [DbContext(typeof(CoinServiceContext))]
-    partial class CoinServiceContextModelSnapshot : ModelSnapshot
+    [Migration("20190105220449_Added a timestamp to new tickers")]
+    partial class Addedatimestamptonewtickers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,7 +46,8 @@ namespace CoinService.DataLayer.Migrations
 
                     b.Property<string>("Symbol");
 
-                    b.Property<DateTime>("Timestamp");
+                    b.Property<DateTime>("Timestamp")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<decimal>("Volume");
 

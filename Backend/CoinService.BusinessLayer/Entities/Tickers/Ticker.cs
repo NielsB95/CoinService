@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CoinService.BusinessLayer.Entities.Tickers
@@ -20,6 +21,7 @@ namespace CoinService.BusinessLayer.Entities.Tickers
 		public decimal Volume { get; set; }
 		public decimal High { get; set; }
 		public decimal Low { get; set; }
+		public DateTime Timestamp { get; set; }
 
 		public override string ToString()
 		{
