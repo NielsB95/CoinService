@@ -7,6 +7,15 @@ jobs:
       - checkout
       - run: cd Backend && dotnet restore
       - run: cd Backend && dotnet build
+
+  backend_test:
+    docker:
+      - image: microsoft/dotnet:2.2.100-sdk-stretch
+    steps:
+      - checkout
+      - run: cd Backend && dotnet restore
+      - run: cd Backend && dotnet test
+
   backend_publish:
     docker:
       - image: microsoft/dotnet:2.2.100-sdk-stretch
@@ -19,6 +28,9 @@ workflows:
   build:
     jobs:
       - backend_build
-      - backend_publish:
+      - backend_test:
           requires:
             - backend_build
+      - backend_publish:
+          requires:
+            - backend_publish
