@@ -33,4 +33,4 @@ workflows:
             - backend_build
       - backend_publish:
           requires:
-            - backend_publish
+            - backend_test
