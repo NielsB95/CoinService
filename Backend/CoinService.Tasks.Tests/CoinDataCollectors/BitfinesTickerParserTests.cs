@@ -1,8 +1,8 @@
-using CoinService.Tasks.CoinDataCollectors.Bitfinex;
+﻿using CoinService.Tasks.CoinDataCollectors.Bitfinex;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 
-namespace CoinService.Tasks.Tests
+namespace CoinService.Tasks.Tests.CoinDataCollectors
 {
 	[TestClass]
 	public class BitfinesTickerParserTests

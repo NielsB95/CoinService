@@ -11,7 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoinService.BusinessLayer",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoinService.DataLayer", "CoinService.DataLayer\CoinService.DataLayer.csproj", "{7E413628-FEF4-4FD7-AC3B-68C09B284885}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinService.Tasks.Tests", "CoinService.Tasks.Tests\CoinService.Tasks.Tests.csproj", "{49458A14-D601-42C6-90C9-B27FC75CDE85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoinService.Tasks.Tests", "CoinService.Tasks.Tests\CoinService.Tasks.Tests.csproj", "{49458A14-D601-42C6-90C9-B27FC75CDE85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6DFECC4C-F70F-49AD-97FA-ACF4CFFE57E8}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
